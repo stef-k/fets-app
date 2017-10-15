@@ -1,26 +1,7 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Mobile application for the FETS web service
 
-## How to use this template
+An Ionic app used to report wildfire incindents to the corresponding service running [FETS](https://github.com/stef-k/fets)
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## About:
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
-
-Then, to run it, cd into `myTabs` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
+FETS is an early fire detection system utilizing public awareness in order to collect early indications of potential wildfires. The web application, receives data such as GPS coordinates and timestamps from the accompaning Android application and renders the related information locally in Google maps.
