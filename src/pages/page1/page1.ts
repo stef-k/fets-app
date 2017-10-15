@@ -15,6 +15,12 @@ export class Page1Page {
    */
   private timeLimit: number;
   /**
+   * The distance in kilometres used to rate limit the reports on new incindents.
+   * This will be used in combination with the timeLimit in order to succeed a
+   * logical combination while limiting remote requests to the FETS service.
+   */
+  private distanceLimi: number;
+  /**
    * The API endpoint URL
    */
   private url: string;
@@ -30,8 +36,20 @@ export class Page1Page {
    * @returns {Promise} any
    */
   loadPhoneNumber(): any {
-    return this.storage.get('phoneNumber').then((val) => {
-      return val;
+    return this.storage.get('phoneNumber').then((phoneNumber) => {
+      return phoneNumber;
+    })
+  }
+
+  /**
+   * Loads last reported incident's coordinates
+   * @returns {Promise} any lat-lon object
+   */
+  loadLastReportedCoordinates():any {
+    return this.storage.get('lat').then((lat) => {
+      return this.storage.get('lon').then((lon) => {
+        return {'lat': lat, 'lon': lon}
+      })
     })
   }
 
