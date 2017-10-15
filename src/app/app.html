@@ -1,0 +1,36 @@
+<ion-menu [content]="mainContent">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        ΜΕΝΟΥ
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="side-menu21" style="background-color:#2C4251;">
+    <div>
+      <img src="assets/img/GfKuVLCSAu0GEyxIYZht_logo.png" style="display:block;width:50%;height:auto;margin-left:auto;margin-right:auto;" />
+    </div>
+    <ion-list id="side-menu21-list1">
+      <ion-item color="none" menuClose="" on-click="goToPage1()" id="side-menu21-list-item1">
+        ΑΡΧΙΚΗ
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage2()" id="side-menu21-list-item2">
+        ΡΥΘΜΙΣΕΙΣ
+      </ion-item>
+      <ion-item color="none" menuClose="" on-click="goToPage3()" id="side-menu21-list-item3">
+        ΠΛΗΡΟΦΟΡΙΕΣ
+      </ion-item>
+    </ion-list>
+    <div class="spacer" style="height:10px;" id="side-menu21-spacer3"></div>
+    <div id="side-menu21-markdown9" style="text-align:center;" class="show-list-numbers-and-dots">
+      <p style="color:#FCF5F5;">
+        Developed by
+        <a href="https://imaginebinary.io">
+          Imagine Binary
+        </a>
+      </p>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mainContent [root]="rootPage"></ion-nav>

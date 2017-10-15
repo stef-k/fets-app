@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      ΡΥΘΜΙΣΕΙΣ
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2">
+  <div id="page2-markdown1" style="text-align:center;" class="show-list-numbers-and-dots">
+    <p style="color:#800000;">
+      ΤΑ ΠΑΡΑΚΑΤΩ ΠΕΔΙΑ ΕΙΝΑΙ ΥΠΟΧΡΕΩΤΙΚΑ!
+    </p>
+  </div>
+  <h5 id="page2-heading1" style="color:#000000;text-align:center;">
+    ΑΡΙΘΜΟΣ ΤΗΛΕΦΩΝΟΥ
+  </h5>
+  <form id="page2-form3">
+    <ion-item id="page2-input4">
+      <ion-label></ion-label>
+      <ion-input type="text" placeholder="" name="phoneNumber" [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+  </form>
+  <div id="page2-markdown2" style="text-align:justify;" class="show-list-numbers-and-dots">
+    <p style="color:#000000;font-size:16px;">
+      Εισάγετε τον αριθμό τηλεφώνου σας ώστε να μπορεί η υπηρεσία να σας καλέσει για περαιτέρω διευκρινίσεις επί του γεγονότος.
+    </p>
+  </div>
+    <button id="page2-button1" ion-button color="dark" block large (click)='savePhoneNumber();'>
+    ΑΠΟΘΗΚΕΥΣΗ
+  </button>
+  <div id="page2-markdown3" style="text-align:justify;" class="show-list-numbers-and-dots">
+    <p style="color:#800000;font-size:16px;">
+      Χωρίς τον αριθμό του κινητού σας, η εφαρμογή ΔΕΝ θα λειτουργεί.
+    </p>
+  </div>
+</ion-content>
