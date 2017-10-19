@@ -28,7 +28,7 @@ export class Page1Page {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
     private storage: Storage, private geolocation: Geolocation, private http: HTTP) {
     this.timeLimit = 1;
-    this.url = '';
+    this.url = 'http://fets.stefk.me/api/v1/alerts/create';
   }
 
   /**
