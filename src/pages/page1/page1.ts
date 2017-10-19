@@ -19,7 +19,7 @@ export class Page1Page {
    * This will be used in combination with the timeLimit in order to succeed a
    * logical combination while limiting remote requests to the FETS service.
    */
-  private distanceLimi: number;
+  private distanceLimit: number;
   /**
    * The API endpoint URL
    */
@@ -28,6 +28,7 @@ export class Page1Page {
   constructor(public navCtrl: NavController, public alertCtrl: AlertController,
     private storage: Storage, private geolocation: Geolocation, private http: HTTP) {
     this.timeLimit = 1;
+    this.distanceLimit = 1;
     this.url = 'http://fets.stefk.me/api/v1/alerts/create';
   }
 
@@ -88,6 +89,9 @@ export class Page1Page {
    */
   checkLastReportedIncindent() {
     return this.storage.get('reportedAt').then((val) => {
+      if (val === null) {
+        return true;
+      }
       if (val) {
         let now = +new Date();
         let last = +Date.parse(val)
@@ -147,16 +151,20 @@ export class Page1Page {
    */
   reportIncindent() {
     this.loadPhoneNumber().then((phone) => {
-      this.checkLastReportedIncindent().then((notReported) => {
-        if (notReported) {
-          this.getCoordinates().then((coords) => {
-            // do the actual API call
-            this.remoteReportIncindent(coords.lat, coords.lon, phone)
-          })
-        } else {
-          this.showAlert('Έχετε ήδη αναφέρει το συμβάν!')
-        }
-      })
+      if (phone !== null) {
+        this.checkLastReportedIncindent().then((notReported) => {
+          if (notReported) {
+            this.getCoordinates().then((coords) => {
+              // do the actual API call
+              this.remoteReportIncindent(coords.lat, coords.lon, phone)
+            })
+          } else {
+            this.showAlert('Έχετε ήδη αναφέρει το συμβάν!')
+          }
+        })
+      } else {
+        this.showAlert('Για να αναφέρετε το συμβάν, θα πρέπει πρώτα να εισάγετε τον αριθμό του κινητού σας στις ρυθμίσεις της εφαρμογής!')
+      }
     })
   }
 
